@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COVID Symptom Input</title>
+  <!-- Font Awesome CDN for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" 
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4C+X1s+2n8Jd0K8oYUIbFl3s6iC1z03G0OqIc+9GtN9MZAdRIFR6H3XG0Jqj5w3vFz1bw==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* CSS Variables for easy customization */
+    :root {
+      --primary-color: #007bff;
+      --secondary-color: #28a745;
+      --accent-color: #ff6b6b;
+      --bg-gradient: linear-gradient(135deg, #74ebd5, #acb6e5);
+      --container-gradient: linear-gradient(135deg, #ffffff, #f8f8f8);
+      --input-border: #ccc;
+      --input-focus: #007bff;
+      --text-color: #333;
+    }
+    
+    /* Background with a subtle pattern and gradient overlay */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: 
+        url('https://www.transparenttextures.com/patterns/cubes.png'),
+        var(--bg-gradient);
+      background-size: auto, cover;
+      color: var(--text-color);
+    }
+    
+    .container {
+      margin: 40px auto;
+      padding: 20px 30px;
+      max-width: 90%;
+      width: 100%;
+      background: var(--container-gradient);
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header-icon {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 3rem;
+      color: var(--accent-color);
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2rem;
+      color: var(--primary-color);
+    }
+    
+    form {
+      width: 100%;
+    }
+    
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    select, input {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0 20px;
+      border: 1px solid var(--input-border);
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-size: 1rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    select:focus, input:focus {
+      outline: none;
+      border-color: var(--input-focus);
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    }
+    
+    button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      color: #fff;
+      border-radius: 6px;
+      margin-top: 10px;
+      transition: background 0.3s ease;
+    }
+    
+    button:hover {
+      background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        margin: 20px auto;
+        padding: 15px 20px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 24px;
+      }
+      button {
+        font-size: 14px;
+        padding: 10px;
+      }
+      select, input {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-icon">
+      <i class="fas fa-virus"></i>
+    </div>
+    <h1>Enter Your Symptoms</h1>
+    <form action="/result" method="POST">
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="Age" required>
+      
+      <label for="gender">Gender:</label>
+      <select id="gender" name="Gender" required>
+        <option value="" disabled selected>Select Gender</option>
+        <option value="1">Male</option>
+        <option value="0">Female</option>
+      </select>
+      
+      <label for="pregnant">Pregnant:</label>
+      <select id="pregnant" name="Pregnant" required>
+        <option value="" disabled selected>Select Yes/No</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+      
+      <label for="diabetes">Diabetes:</label>
+      <select id="diabetes" name="Diabetes" required>
+        <option value="" disabled selected>Select Yes/No</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+      
+      <label for="hypertension">Hypertension:</label>
+      <select id="hypertension" name="Hypertension" required>
+        <option value="" disabled selected>Select Yes/No</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+      
+      <label for="obesity">Obesity:</label>
+      <select id="obesity" name="Obesity" required>
+        <option value="" disabled selected>Select Yes/No</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+      
+      <label for="fever">Fever:</label>
+      <select id="fever" name="Fever" required>
+        <option value="" disabled selected>Select Yes/No</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+      
+      <label for="cough">Cough:</label>
+      <select id="cough" name="Cough" required>
+        <option value="" disabled selected>Select Yes/No</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+      
+      <label for="fatigue">Fatigue:</label>
+      <select id="fatigue" name="Fatigue" required>
+        <option value="" disabled selected>Select Yes/No</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+      
+      <label for="shortness_of_breath">Shortness of Breath:</label>
+      <select id="shortness_of_breath" name="Shortness_of_Breath" required>
+        <option value="" disabled selected>Select Yes/No</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+      
+      <label for="loss_of_taste_smell">Loss of Taste/Smell:</label>
+      <select id="loss_of_taste_smell" name="Loss_of_Taste_Smell" required>
+        <option value="" disabled selected>Select Yes/No</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+      
+      <label for="headache">Headache:</label>
+      <select id="headache" name="Headache" required>
+        <option value="" disabled selected>Select Yes/No</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+      
+      <label for="sore_throat">Sore Throat:</label>
+      <select id="sore_throat" name="Sore_Throat" required>
+        <option value="" disabled selected>Select Yes/No</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+      
+      <label for="body_aches">Body Aches:</label>
+      <select id="body_aches" name="Body_Aches" required>
+        <option value="" disabled selected>Select Yes/No</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+      
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>

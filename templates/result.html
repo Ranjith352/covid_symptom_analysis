@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COVID Test Result</title>
+  <!-- Font Awesome CDN for icons (optional for adding icon accents if needed) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" 
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4C+X1s+2n8Jd0K8oYUIbFl3s6iC1z03G0OqIc+9GtN9MZAdRIFR6H3XG0Jqj5w3vFz1bw==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --primary-color: #007bff;
+      --secondary-color: #28a745;
+      --accent-color: #ff6b6b;
+      --bg-gradient: linear-gradient(135deg, #74ebd5, #acb6e5);
+      --container-gradient: linear-gradient(135deg, #ffffff, #f8f8f8);
+      --text-color: #333;
+    }
+    
+    /* Background with subtle pattern overlay and gradient */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: 
+        url('https://www.transparenttextures.com/patterns/cubes.png'),
+        var(--bg-gradient);
+      background-size: auto, cover;
+      color: var(--text-color);
+    }
+    
+    .container {
+      margin: 40px auto;
+      padding: 20px 30px;
+      max-width: 90%;
+      background: var(--container-gradient);
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2rem;
+      color: var(--primary-color);
+    }
+    
+    .result-container {
+      text-align: center;
+      padding: 20px;
+    }
+    
+    p {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+    
+    .positive {
+      color: red;
+      font-weight: bold;
+    }
+    
+    .negative {
+      color: green;
+      font-weight: bold;
+    }
+    
+    a {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+      text-decoration: none;
+      padding: 12px;
+      background-color: var(--primary-color);
+      color: #fff;
+      border-radius: 4px;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+    
+    a:hover {
+      background-color: #0056b3;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        margin: 20px auto;
+        padding: 15px 20px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 24px;
+      }
+      p {
+        font-size: 16px;
+      }
+      a {
+        font-size: 14px;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>COVID Symptom Analysis Result</h1>
+    <div class="result-container">
+      <p><strong>Test Result:</strong> 
+        <span class="{% if result['test_result'] == 'Positive' %}positive{% else %}negative{% endif %}">
+          {{ result['test_result'] }}
+        </span>
+      </p>
+      <p><strong>Severity Level:</strong> {{ result['severity'] }}</p>
+      <a href="/">Back to Input</a>
+    </div>
+  </div>
+</body>
+</html>
